@@ -12,13 +12,14 @@ datasource db {
 
 model User {
   id        Int      @id @default(autoincrement())
+  profileId Int      @unique
   email     String   @unique
   nameFirst String
   nameLast  String
   userName  String   @unique
   posts     Post[]
-  message   Message[]
-  profile   Int   
+  messages  Message[]
+  // profile   Profile?   
 }  
 
 model Post { 
@@ -37,6 +38,9 @@ model Message {
   userId    Int
 }
 
-model Profile {
-  id        Int     @relation(fields: [userId], references: [id])
-}
+// model Profile {
+//   id        Int     @id @default(autoincrement())
+//   title     String
+//   // user      User    @relation(fields: [userId], references: [profile])
+//   userId    User    @relation(fields: [userId], references: [id])
+// }
