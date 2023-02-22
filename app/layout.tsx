@@ -1,4 +1,5 @@
 import './globals.css'
+import Nav from './pages/api/auth/nav.tsx'
 
 export default function RootLayout({
   children,
